@@ -6,6 +6,7 @@ const useGetRTM = () => {
   const dispatch = useDispatch();
   const { socket } = useSelector((store) => store.socketio);
   const { messages } = useSelector((store) => store.chat);
+
   useEffect(() => {
     socket?.on("newMessage", (newMessage) => {
       dispatch(setMessages([...messages, newMessage]));
@@ -16,4 +17,5 @@ const useGetRTM = () => {
     };
   }, [messages, setMessages]);
 };
+
 export default useGetRTM;

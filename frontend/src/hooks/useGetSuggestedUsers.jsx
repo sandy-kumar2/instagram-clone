@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 const useGetSuggestedUsers = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchSuggestedUsers = async () => {
       try {
@@ -22,4 +23,5 @@ const useGetSuggestedUsers = () => {
     fetchSuggestedUsers();
   }, []);
 };
+
 export default useGetSuggestedUsers;

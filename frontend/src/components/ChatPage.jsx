@@ -11,9 +11,7 @@ import { setMessages } from "@/redux/chatSlice";
 
 const ChatPage = () => {
   const [textMessage, setTextMessage] = useState("");
-  const { user, suggestedUsers, selectedUser } = useSelector(
-    (store) => store.auth
-  );
+  const { user, suggestedUsers, selectedUser } = useSelector((store) => store.auth);
   const { onlineUsers, messages } = useSelector((store) => store.chat);
   const dispatch = useDispatch();
 
@@ -55,8 +53,7 @@ const ChatPage = () => {
             return (
               <div
                 onClick={() => dispatch(setSelectedUser(suggestedUser))}
-                className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer"
-              >
+                className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer">
                 <Avatar className="w-14 h-14">
                   <AvatarImage src={suggestedUser?.profilePicture} />
                   <AvatarFallback>CN</AvatarFallback>

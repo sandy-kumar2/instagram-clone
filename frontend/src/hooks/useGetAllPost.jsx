@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 const useGetAllPost = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchAllPost = async () => {
       try {
@@ -21,4 +22,5 @@ const useGetAllPost = () => {
     fetchAllPost();
   }, []);
 };
+
 export default useGetAllPost;
