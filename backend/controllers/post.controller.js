@@ -46,6 +46,7 @@ export const addNewPost = async (req, res) => {
     console.log(error);
   }
 };
+
 export const getAllPost = async (req, res) => {
   try {
     const posts = await Post.find()
@@ -59,6 +60,7 @@ export const getAllPost = async (req, res) => {
           select: "username profilePicture",
         },
       });
+
     return res.status(200).json({
       posts,
       success: true,
@@ -67,6 +69,7 @@ export const getAllPost = async (req, res) => {
     console.log(error);
   }
 };
+
 export const getUserPost = async (req, res) => {
   try {
     const authorId = req.id;
@@ -92,6 +95,7 @@ export const getUserPost = async (req, res) => {
     console.log(error);
   }
 };
+
 export const likePost = async (req, res) => {
   try {
     const likeKrneWalaUserKiId = req.id;
@@ -128,6 +132,7 @@ export const likePost = async (req, res) => {
     return res.status(200).json({ message: "Post liked", success: true });
   } catch (error) {}
 };
+
 export const dislikePost = async (req, res) => {
   try {
     const likeKrneWalaUserKiId = req.id;
@@ -163,6 +168,7 @@ export const dislikePost = async (req, res) => {
     return res.status(200).json({ message: "Post disliked", success: true });
   } catch (error) {}
 };
+
 export const addComment = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -200,6 +206,7 @@ export const addComment = async (req, res) => {
     console.log(error);
   }
 };
+
 export const getCommentsOfPost = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -219,6 +226,7 @@ export const getCommentsOfPost = async (req, res) => {
     console.log(error);
   }
 };
+
 export const deletePost = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -253,21 +261,26 @@ export const deletePost = async (req, res) => {
     console.log(error);
   }
 };
+
 export const bookmarkPost = async (req, res) => {
   try {
     const postId = req.params.id;
-    const authorId = req.id;
+    const authorId = req.id; //logged in User
+
     const post = await Post.findById(postId);
+
     if (!post)
       return res
         .status(404)
         .json({ message: "Post not found", success: false });
 
     const user = await User.findById(authorId);
+
     if (user.bookmarks.includes(post._id)) {
       // already bookmarked -> remove from the bookmark
       await user.updateOne({ $pull: { bookmarks: post._id } });
       await user.save();
+      
       return res
         .status(200)
         .json({
