@@ -41,8 +41,7 @@ const Profile = () => {
     setActiveTab(tab);
   };
 
-  const displayedPost =
-    activeTab === "posts" ? userProfile?.posts : userProfile?.bookmarks;
+  const displayedPost = activeTab === "posts" ? userProfile?.posts : userProfile?.bookmarks;
 
   return (
     <div className="flex max-w-5xl justify-center mx-auto pl-10">
@@ -86,16 +85,9 @@ const Profile = () => {
                   </>
                 ) : isFollowing ? (
                   <>
-                    <Button
-                      onClick={followAndUnfollowHandler}
-                      variant="secondary"
-                      className="h-8"
-                    >
-                      Unfollow
-                    </Button>
-                    <Button variant="secondary" className="h-8">
-                      Message
-                    </Button>
+                    <Button onClick={followAndUnfollowHandler} variant="secondary"
+                      className="h-8">Unfollow</Button>
+                    <Button variant="secondary" className="h-8">Message</Button>
                   </>
                 ) : (
                   <Button
@@ -134,7 +126,7 @@ const Profile = () => {
                   <AtSign />{" "}
                   <span className="pl-1">{userProfile?.username}</span>{" "}
                 </Badge>
-                <span>🤯Learn code with patel mernstack style</span>
+                <span>🤯Learn code with sandeep mernstack style</span>
                 <span>🤯Turing code into fun</span>
                 <span>🤯DM for collaboration</span>
               </div>

@@ -206,11 +206,7 @@ const Post = ({ post }) => {
             />
           )}
 
-          <MessageCircle
-            onClick={() => {
-              dispatch(setSelectedPost(post));
-              setOpen(true);
-            }}
+          <MessageCircle onClick={() => {dispatch(setSelectedPost(post));setOpen(true)}}
             className="cursor-pointer hover:text-gray-600"
           />
           <Send className="cursor-pointer hover:text-gray-600" />
@@ -221,18 +217,11 @@ const Post = ({ post }) => {
         />
       </div>
       <span className="font-medium block mb-2">{postLike} likes</span>
-      <p>
-        <span className="font-medium mr-2">{post.author?.username}</span>
-        {post.caption}
+      <p><span className="font-medium mr-2">{post.author?.username}</span>{post.caption}
       </p>
       {comment.length > 0 && (
-        <span
-          onClick={() => {
-            dispatch(setSelectedPost(post));
-            setOpen(true);
-          }}
-          className="cursor-pointer text-sm text-gray-400"
-        >
+        <span onClick={() => {dispatch(setSelectedPost(post));setOpen(true)}}
+          className="cursor-pointer text-sm text-gray-400">
           View all {comment.length} comments
         </span>
       )}
