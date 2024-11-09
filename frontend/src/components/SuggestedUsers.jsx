@@ -19,7 +19,7 @@ const SuggestedUsers = () => {
         { id: user?._id }
       );
 
-      dispatch(followingUpdate(targetUserId)); // Update follow/unfollow state for the target user
+      dispatch(followingUpdate(targetUserId));  
       toast.success(res.data.message);
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong");
@@ -33,7 +33,7 @@ const SuggestedUsers = () => {
         <span className="font-medium cursor-pointer">See All</span>
       </div>
       {suggestedUsers.map((suggestedUser) => {
-        const isFollowing = user?.following.includes(suggestedUser._id); // Check if the logged-in user is following this suggested user
+        const isFollowing = user?.following.includes(suggestedUser._id);
 
         return (
           <div
@@ -61,7 +61,7 @@ const SuggestedUsers = () => {
                 </span>
               </div>
             </div>
-            {/* Conditional Button Rendering */}
+           
             {isFollowing ? (
               <Button
                 onClick={() => followAndUnfollowHandler(suggestedUser._id)}
