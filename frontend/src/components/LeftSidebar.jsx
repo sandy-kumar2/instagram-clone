@@ -16,8 +16,7 @@ const LeftSidebar = () => {
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.auth);
   const { followNotification, likeNotification } = useSelector(
-    (store) => store.realTimeNotification || { followNotification: [] }
-  );
+    (store) => store.realTimeNotification || { followNotification: [] });
   console.log(followNotification);
   console.log(likeNotification);
 
@@ -123,9 +122,7 @@ const LeftSidebar = () => {
                               >
                                 <Avatar>
                                   <AvatarImage
-                                    src={
-                                      notification.userDetails?.profilePicture
-                                    }
+                                    src={notification.userDetails?.profilePicture}
                                   />
                                   <AvatarFallback>CN</AvatarFallback>
                                 </Avatar>
@@ -151,8 +148,7 @@ const LeftSidebar = () => {
                       <PopoverTrigger asChild>
                         <Button
                           size="icon"
-                          className="rounded-full h-5 w-5 bg-blue-600 hover:bg-blue-600 absolute bottom-6 left-6"
-                        >
+                          className="rounded-full h-5 w-5 bg-blue-600 hover:bg-blue-600 absolute bottom-6 left-6">
                           {followNotification.length}
                         </Button>
                       </PopoverTrigger>
@@ -164,13 +160,10 @@ const LeftSidebar = () => {
                             followNotification.map((notification) => (
                               <div
                                 key={notification.userId}
-                                className="flex items-center gap-2 my-2"
-                              >
+                                className="flex items-center gap-2 my-2">
                                 <Avatar>
                                   <AvatarImage
-                                    src={
-                                      notification.userDetails?.profilePicture
-                                    }
+                                    src={notification.userDetails?.profilePicture}
                                   />
                                   <AvatarFallback>CN</AvatarFallback>
                                 </Avatar>

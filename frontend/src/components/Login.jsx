@@ -9,10 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "@/redux/authSlice";
 
 const Login = () => {
-  const [input, setInput] = useState({
-    email: "",
-    password: "",
-  });
+  const [input, setInput] = useState({email: "",password: ""});
   const [loading, setLoading] = useState(false);
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
@@ -22,7 +19,7 @@ const Login = () => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const signupHandler = async (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
@@ -60,10 +57,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center w-screen h-screen justify-center">
-      <form
-        onSubmit={signupHandler}
-        className="shadow-lg flex flex-col gap-5 p-8"
-      >
+      <form onSubmit={loginHandler} className="shadow-lg flex flex-col gap-5 p-8">
         <div className="my-4">
           <h1 className="text-center font-bold text-xl">LOGO</h1>
           <p className="text-sm text-center">
@@ -98,7 +92,6 @@ const Login = () => {
         ) : (
           <Button type="submit">Login</Button>
         )}
-
         <span className="text-center">
           Dosent have an account?{" "}
           <Link to="/signup" className="text-blue-600">
