@@ -15,19 +15,24 @@ export const register = async (req, res) => {
         success: false,
       });
     }
+
     const user = await User.findOne({ email });
+
     if (user) {
       return res.status(401).json({
         message: "Try different email",
         success: false,
       });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
+
     await User.create({
       username,
       email,
       password: hashedPassword,
     });
+
     return res.status(201).json({
       message: "Account created successfully.",
       success: true,
@@ -46,14 +51,18 @@ export const login = async (req, res) => {
         success: false,
       });
     }
+
     let user = await User.findOne({ email });
+
     if (!user) {
       return res.status(401).json({
         message: "Incorrect email or password",
         success: false,
       });
     }
+
     const isPasswordMatch = await bcrypt.compare(password, user.password);
+
     if (!isPasswordMatch) {
       return res.status(401).json({
         message: "Incorrect email or password",
@@ -75,6 +84,7 @@ export const login = async (req, res) => {
         return null;
       })
     );
+
     user = {
       _id: user._id,
       username: user.username,
@@ -85,6 +95,7 @@ export const login = async (req, res) => {
       following: user.following,
       posts: populatedPosts,
     };
+
     return res
       .cookie("token", token, {
         httpOnly: true,
@@ -115,9 +126,11 @@ export const logout = async (_, res) => {
 export const getProfile = async (req, res) => {
   try {
     const userId = req.params.id;
+    
     let user = await User.findById(userId)
       .populate({ path: "posts", createdAt: -1 })
       .populate("bookmarks");
+      
     return res.status(200).json({
       user,
       success: true,
@@ -146,6 +159,7 @@ export const editProfile = async (req, res) => {
         success: false,
       });
     }
+
     if (bio) user.bio = bio;
     if (gender) user.gender = gender;
     if (profilePicture) user.profilePicture = cloudResponse.secure_url;
@@ -167,11 +181,13 @@ export const getSuggestedUsers = async (req, res) => {
     const suggestedUsers = await User.find({ _id: { $ne: req.id } }).select(
       "-password"
     );
+
     if (!suggestedUsers) {
       return res.status(400).json({
         message: "Currently do not have any users",
       });
     }
+    
     return res.status(200).json({
       success: true,
       users: suggestedUsers,
