@@ -1,4 +1,3 @@
-// redux/rtnSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const realTimeNotificationSlice = createSlice({
@@ -17,6 +16,7 @@ const realTimeNotificationSlice = createSlice({
         );
       }
     },
+
     setFollowNotification: (state, action) => {
       if (action.payload.type === "follow") {
         state.followNotification.push(action.payload);
@@ -26,9 +26,11 @@ const realTimeNotificationSlice = createSlice({
         );
       }
     },
+
     clearLikeNotifications: (state) => {
       state.likeNotification = [];
     },
+    
     clearFollowNotifications: (state) => {
       state.followNotification = [];
     },

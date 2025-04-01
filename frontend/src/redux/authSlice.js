@@ -35,6 +35,7 @@ const authSlice = createSlice({
     },
   },
 });
+
 export const {
   setAuthUser,
   setSuggestedUsers,

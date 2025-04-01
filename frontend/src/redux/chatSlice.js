@@ -16,5 +16,6 @@ const chatSlice = createSlice({
     },
   },
 });
+
 export const { setOnlineUsers, setMessages } = chatSlice.actions;
 export default chatSlice.reducer;
