@@ -129,7 +129,7 @@ const Post = ({ post }) => {
   const followAndUnfollowHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/user/followorunfollow/${post.author._id}`,
+        `https://instagram-clone-lbg7.onrender.com/user/followorunfollow/${post.author._id}`,
         { id: user?._id },
         { withCredentials: true }
       );

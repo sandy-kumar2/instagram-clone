@@ -26,7 +26,7 @@ const Profile = () => {
     try {
       axios.defaults.withCredentials = true;
       const res = await axios.post(
-        `http://localhost:8000/api/v1/user/followorunfollow/${userId}`,
+        `https://instagram-clone-lbg7.onrender.com/followorunfollow/${userId}`,
         { id: user?._id }
       );
 
