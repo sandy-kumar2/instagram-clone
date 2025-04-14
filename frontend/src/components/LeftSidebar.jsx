@@ -26,7 +26,7 @@ const LeftSidebar = () => {
   const logoutHandler = async () => {
     try {
       const res = await axios.get(
-        "https://instagram-clone-lbg7.onrender.com/api/v1/user/logout",
+        "https://instagram-clone-vwps.onrender.com/api/v1/user/logout",
         {
           withCredentials: true,
         }

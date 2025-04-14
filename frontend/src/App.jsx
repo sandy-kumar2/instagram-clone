@@ -75,15 +75,12 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io(
-        "https://instagram-clone-amber-chi.vercel.app",
-        {
-          query: {
-            userId: user?._id,
-          },
-          transports: ["websocket"],
-        }
-      );
+      const socketio = io("https://instagram-clone-ten-tan.vercel.app/login", {
+        query: {
+          userId: user?._id,
+        },
+        transports: ["websocket"],
+      });
       dispatch(setSocket(socketio));
 
       // listen all the events

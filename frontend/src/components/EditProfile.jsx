@@ -48,7 +48,7 @@ const EditProfile = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://instagram-clone-lbg7.onrender.com/api/v1/user/profile/edit",
+        "https://instagram-clone-vwps.onrender.com/api/v1/user/profile/edit",
         formData,
         {
           headers: {
