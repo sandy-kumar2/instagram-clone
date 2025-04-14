@@ -75,7 +75,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io("https://instagram-clone-ten-tan.vercel.app/login", {
+      const socketio = io("https://instagram-clone-ten-tan.vercel.app", {
         query: {
           userId: user?._id,
         },
