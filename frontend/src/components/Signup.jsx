@@ -26,7 +26,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        'http://instagram-clone-vwps.onrender.com/api/v1/user/register',
+        "https://instagram-clone-vwps.onrender.com/api/v1/user/register",
         input,
         {
           headers: {
