@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "https://instagram-clone-amber-chi.vercel.app/login",
+  origin: "https://instagram-clone-amber-chi.vercel.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
